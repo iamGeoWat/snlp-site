@@ -1,0 +1,53 @@
+---
+import Layout from "../components/Layout.astro";
+
+const screenshots = [
+  { src: "/tofu-records/01.png", alt: "Tofu Records CoverFlow library view" },
+  { src: "/tofu-records/02.png", alt: "Album detail sheet with save actions" },
+  { src: "/tofu-records/03.png", alt: "Resolution picker for HD album cover" },
+  { src: "/tofu-records/04.png", alt: "Saving an animated album cover" },
+  { src: "/tofu-records/05.png", alt: "Me tab showing connection status" },
+];
+---
+
+<Layout
+  title="Tofu Records"
+  description="Browse your Apple Music library iPod-style. Save album art and animated covers."
+>
+  <section>
+    <h1 class="text-5xl font-medium leading-tight">
+      Tofu Records
+      <span class="block mt-2 text-2xl opacity-60">淘封面</span>
+    </h1>
+    <p class="mt-6 text-xl opacity-80 leading-relaxed">
+      Browse your Apple Music library iPod-style — then save the album art you love,
+      including the animated covers Apple Music doesn't normally let you keep.
+    </p>
+  </section>
+
+  <section class="mt-12">
+    <a
+      href="https://apps.apple.com/app/id6499509549"
+      class="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-current text-[color:light-dark(white,black)] hover:opacity-80 transition-opacity"
+    >
+      <span class="font-medium">Download on the App Store</span>
+    </a>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="text-sm uppercase tracking-[0.15em] opacity-60 mb-6">Inside</h2>
+    <ul class="space-y-4 text-lg leading-relaxed">
+      <li><strong>Classic CoverFlow.</strong> 3D rotation, mirrored reflections, infinite flick-scroll, the satisfying tick of the original click wheel.</li>
+      <li><strong>Save album art in HD.</strong> Default size, or pull the highest-resolution source available on the album page.</li>
+      <li><strong>Save animated album covers.</strong> When motion artwork is available, Tofu Records downloads the source video to your photo library.</li>
+      <li><strong>Just your library.</strong> Reads only the albums you've added. No streaming, no recommendations, no tracking.</li>
+      <li><strong>Privacy first.</strong> No ads, no tracking, no account, no analytics.</li>
+    </ul>
+  </section>
+
+  <section class="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-4">
+    {screenshots.map(s => (
+      <img src={s.src} alt={s.alt} class="w-full rounded-md border border-current/10" loading="lazy" />
+    ))}
+  </section>
+</Layout>
