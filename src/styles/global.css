@@ -1,1 +1,41 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Inter-roman.var.woff2") format("woff2-variations");
+}
+
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-bg-light: #FFFFFF;
+  --color-bg-dark: #0A0A0A;
+  --color-fg-light: #0A0A0A;
+  --color-fg-dark: #FAFAFA;
+  --color-muted-light: #666666;
+  --color-muted-dark: #999999;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: light-dark(var(--color-bg-light), var(--color-bg-dark));
+  color: light-dark(var(--color-fg-light), var(--color-fg-dark));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
