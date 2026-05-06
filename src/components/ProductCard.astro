@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string;
+  name: string;
+  description: string;
+  zhName?: string;
+}
+const { href, name, description, zhName } = Astro.props;
+---
+
+<a
+  href={href}
+  class="block border border-current/10 rounded-lg p-6 hover:border-current/30 transition-colors"
+>
+  <div class="flex items-baseline gap-3">
+    <h3 class="text-xl font-medium">{name}</h3>
+    {zhName && <span class="text-base opacity-60">/ {zhName}</span>}
+  </div>
+  <p class="mt-2 text-sm opacity-70">{description}</p>
+</a>

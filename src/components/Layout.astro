@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Solar and Lunar Powered. A small studio for thoughtful apps." } = Astro.props;
+const fullTitle = title === "SNLP" ? "SNLP" : `${title} — SNLP`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <main class="flex-1 mx-auto w-full max-w-[720px] px-6 sm:px-10 py-16 sm:py-24">
+      <slot />
+    </main>
+    <footer class="mx-auto w-full max-w-[720px] px-6 sm:px-10 pb-12 text-sm text-[color:light-dark(var(--color-muted-light),var(--color-muted-dark))]">
+      <nav class="flex gap-6">
+        <a href="/" class="hover:underline">Home</a>
+        <a href="/privacy" class="hover:underline">Privacy</a>
+        <a href="/contact" class="hover:underline">Contact</a>
+        <a href="/about" class="hover:underline">About</a>
+      </nav>
+      <p class="mt-4">© 2026 SNLP — Solar and Lunar Powered.</p>
+    </footer>
+  </body>
+</html>
